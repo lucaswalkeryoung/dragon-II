@@ -437,7 +437,7 @@ class Generator(object):
 		embeddings = autoencoder.embeddings
 
 		accumulator, null, padding = embeddings[Slot]
-		print(accumulator, null, padding)
+		print(accumulator)
 
 		for attribute, value in White.attributes.items():
 			print(attribute, value)
