@@ -9,7 +9,7 @@ from Dragon import Type
 from Dragon import Slot
 
 import torch
-import torch.nn
+import torch.nn as nn
 
 
 # --------------------------------------------------------------------------------------------------
