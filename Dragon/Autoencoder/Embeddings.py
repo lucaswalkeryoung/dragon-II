@@ -3,6 +3,7 @@
 # -------------------------------------------------------------------------------------------------
 from . Annotations import Annotation
 from . Schematics  import Schematics
+from . Embedding   import Embedding
 
 from typing import Annotated
 from typing import Any

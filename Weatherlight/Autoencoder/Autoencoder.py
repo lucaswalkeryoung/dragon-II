@@ -8,14 +8,14 @@ from Dragon import Edge
 from Dragon import Type
 from Dragon import Slot
 
-# import torch
-# import torch.nn
+import torch
+import torch.nn
 
 
 # --------------------------------------------------------------------------------------------------
 # ----------------------------- Autoencoder :: Weatherlight Autoencoder ----------------------------
 # --------------------------------------------------------------------------------------------------
-class Autoencoder(metaclass=Autoencoder, height=512, width=512):
+class Autoencoder(nn.Module, metaclass=Autoencoder, height=512, width=512):
 
 	# -----------------------------------------------------------------------------------------
 	# -------------------------------- Operator :: Constructor --------------------------------
