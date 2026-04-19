@@ -24,6 +24,7 @@ class Embeddings(nn.Module, metaclass=Schematics):
 	# -------------------------------- Operator :: Constructor --------------------------------
 	# -----------------------------------------------------------------------------------------
 	def __init__(self, width: int) -> None:
+		super().__init__()
 
 		self.embeddings = {}
 

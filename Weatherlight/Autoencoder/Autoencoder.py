@@ -21,4 +21,6 @@ class Autoencoder(nn.Module, metaclass=Autoencoder, height=512, width=512):
 	# -------------------------------- Operator :: Constructor --------------------------------
 	# -----------------------------------------------------------------------------------------
 	def __init__(self, embeddings: Embeddings) -> None:
+		super().__init__()
+
 		self.embeddings = embeddings
