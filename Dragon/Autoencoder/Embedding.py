@@ -5,24 +5,27 @@ from . Schematic import Schematic
 
 from typing import Iterator
 
+import torch
+import torch.nn as nn
+
 
 # -------------------------------------------------------------------------------------------------
 # --------------------------------- Utility :: Embeddings Wrapper ---------------------------------
 # -------------------------------------------------------------------------------------------------
-class Embedding(metaclass=Schematic):
+class Embedding(nn.Module, metaclass=Schematic):
 
 	# -----------------------------------------------------------------------------------------
 	# -------------------------------- Operator :: Constructor --------------------------------
 	# -----------------------------------------------------------------------------------------
 	def __init__(self, width: int) -> None:
-		pass # self.embeddings = nn.Embeddings(len(self.schematic, width)
+		self.embeddings = nn.Embeddings(len(self.schematic, width))
 
 
 	# -----------------------------------------------------------------------------------------
 	# ---------------------------------- Operator :: Iterate ----------------------------------
 	# -----------------------------------------------------------------------------------------
 	def __iter__(self) -> Iterator[torch.Tensor]:
-		return iter(self.schematic.values())
+		return iter(self.embeddings)
 
 
 	# -----------------------------------------------------------------------------------------

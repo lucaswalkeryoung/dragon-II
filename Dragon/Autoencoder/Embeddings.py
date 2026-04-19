@@ -10,12 +10,14 @@ from typing import get_args
 from typing import get_origin
 
 import collections
+import torch
+import torch.nn as nn
 
 
 # -------------------------------------------------------------------------------------------------
 # ----------------------------- Metaclass :: Embeddings Tables Manager ----------------------------
 # -------------------------------------------------------------------------------------------------
-class Embeddings(metaclass=Schematics):
+class Embeddings(nn.Module, metaclass=Schematics):
 
 	# -----------------------------------------------------------------------------------------
 	# -------------------------------- Operator :: Constructor --------------------------------
