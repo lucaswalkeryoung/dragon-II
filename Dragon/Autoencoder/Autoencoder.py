@@ -64,7 +64,7 @@ class Autoencoder(type):
 	# -----------------------------------------------------------------------------------------
 	# -------------------------- Method :: Register Node Class Schema -------------------------
 	# -----------------------------------------------------------------------------------------
-	def embed(self, node: Type[Node]) -> Type[Node]:
+	def embed(self, node: Type['Node']) -> Type['Node']:
 
 		annotations = get_type_hints(node, include_extras=True)
 
