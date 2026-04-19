@@ -57,7 +57,7 @@ class Autoencoder(type):
 	# -----------------------------------------------------------------------------------------
 	# --------------------------- Operator :: Call (Create Instance) --------------------------
 	# -----------------------------------------------------------------------------------------
-	def __call__(self, *positional: Any, **named: Any) -> Autoencoder:
+	def __call__(self, *positional: Any, **named: Any) -> 'Autoencoder':
 		return super().__call__(self.schematics(self.width), *positional, **named)
 
 

@@ -13,7 +13,7 @@ class Node(object):
 	# -----------------------------------------------------------------------------------------
 	# -------------------------------- Operator :: Constructor --------------------------------
 	# -----------------------------------------------------------------------------------------
-	def __init__(self, *components: Node | str, **attributes: bool | int | float) -> None:
+	def __init__(self, *components: 'Node | str', **attributes: bool | int | float) -> None:
 
 		self.identifier = uuid.uuid4().hex
 		self.components = list(components)
