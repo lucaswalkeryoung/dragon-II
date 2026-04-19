@@ -18,7 +18,7 @@ class Embedding(nn.Module, metaclass=Schematic):
 	# -------------------------------- Operator :: Constructor --------------------------------
 	# -----------------------------------------------------------------------------------------
 	def __init__(self, width: int) -> None:
-		self.embeddings = nn.Embedding(len(self.schematic, width))
+		self.embeddings = nn.Embedding(len(self.schematic), width)
 
 
 	# -----------------------------------------------------------------------------------------
