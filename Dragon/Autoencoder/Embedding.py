@@ -27,7 +27,9 @@ class Embedding(nn.Module, metaclass=Schematic):
 	# ---------------------------------- Operator :: Iterate ----------------------------------
 	# -----------------------------------------------------------------------------------------
 	def __iter__(self) -> Iterator[torch.Tensor]:
-		return iter(self.embeddings)
+
+		for _, index in self.embeddings.items():
+			yield self.embeddings.weight[index]
 
 
 	# -----------------------------------------------------------------------------------------
