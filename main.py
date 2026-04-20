@@ -8,7 +8,6 @@ from Dragon import Slot
 autoencoder = Autoencoder(height=512, width=512)
 
 def tensorize(node: Node) -> None:
-
 	accumulator, null, padding = autoencoder.embeddings(Slot)
 
 tensorize(None)
