@@ -24,20 +24,19 @@ class Embedding(nn.Module):
 	# -------------------------------- Operator :: Constructor --------------------------------
 	# -----------------------------------------------------------------------------------------
 	def __init__(self, width: int, nodes: Iterable['Schema']) -> None:
-
 		super().__init__()
 
-		self.indices = DefaultKeyDict(lambda key : len(self.indices))
-		self.schemas = DefaultKeyDict(
-			lambda annotation : DefaultKeyDict(lambda attr : self.indices[annotation, attr])
-		)
-
-		for node in nodes:
-
-			for attribute, annotation in Annotation.extract(node).items():
-				node.schema[annotation][attribute] = self.schemas[annotation][attribute]
-
-		self.tensors = nn.Embedding(width, len(self.indices))
+		# self.indices = DefaultKeyDict(lambda key : len(self.indices))
+		# self.schemas = DefaultKeyDict(
+		# 	lambda annotation : DefaultKeyDict(lambda attr : self.indices[annotation, attr])
+		# )
+		#
+		# for node in nodes:
+		#
+		# 	for attribute, annotation in Annotation.extract(node).items():
+		# 		node.schema[annotation][attribute] = self.schemas[annotation][attribute]
+		#
+		# self.tensors = nn.Embedding(width, len(self.indices))
 
 
 	# -----------------------------------------------------------------------------------------
