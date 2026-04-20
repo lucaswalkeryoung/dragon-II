@@ -19,6 +19,7 @@ class Autoencoder(nn.Module):
 	# -------------------------------- Operator :: Constructor --------------------------------
 	# -----------------------------------------------------------------------------------------
 	def __init__(self, height: int, width: int) -> None:
+		super().__init__()
 
 		nodes = vars(Nodes).values()
 
