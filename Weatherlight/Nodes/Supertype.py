@@ -1,25 +1,25 @@
 # --------------------------------------------------------------------------------------------------
 # ------------------------------- Weatherlight :: Nodes :: Supertype -------------------------------
 # --------------------------------------------------------------------------------------------------
-from .. Autoencoder import Autoencoder
-
 from Dragon import Attr
-from Dragon import Edge
 from Dragon import Node
-from Dragon import Slot
 from Dragon import Type
 
 
 # --------------------------------------------------------------------------------------------------
 # ---------------------------------------- Node :: Supertype ---------------------------------------
 # --------------------------------------------------------------------------------------------------
-@Autoencoder.embed
 class Supertype(Node):
 
+	# -----------------------------------------------------------------------------------------
+	# --------------------------------- Embedding Annotations ---------------------------------
+	# -----------------------------------------------------------------------------------------
 	basic	  : Attr[None | bool]
 	legendary : Attr[None | bool]
 	snow	  : Attr[None | bool]
 	world 	  : Attr[None | bool]
+	supertype : Type
+
 
 	# -----------------------------------------------------------------------------------------
 	# -------------------------------- Operator :: Constructor --------------------------------
@@ -31,6 +31,7 @@ class Supertype(Node):
 		self.black = attributes.get('legendary')
 		self.red   = attributes.get('snow')
 		self.green = attributes.get('world')
+
 
 Basic 	  = Supertype(basic=True)
 Legendary = Supertype(legendary=True)

@@ -1,21 +1,19 @@
 # --------------------------------------------------------------------------------------------------
 # ---------------------------------- Weatherlight :: Nodes :: Type ---------------------------------
 # --------------------------------------------------------------------------------------------------
-from .. Autoencoder import Autoencoder
-
 from Dragon import Attr
-from Dragon import Edge
 from Dragon import Node
-from Dragon import Slot
 from Dragon import Type
 
 
 # --------------------------------------------------------------------------------------------------
 # ------------------------------------------ Node :: Type ------------------------------------------
 # --------------------------------------------------------------------------------------------------
-@Autoencoder.embed
 class Type(Node):
 
+	# -----------------------------------------------------------------------------------------
+	# --------------------------------- Embedding Annotations ---------------------------------
+	# -----------------------------------------------------------------------------------------
 	artifact	 : Attr[None | bool]
 	battle 		 : Attr[None | bool]
 	creature	 : Attr[None | bool]
@@ -26,7 +24,8 @@ class Type(Node):
 	land 		 : Attr[None | bool]
 	planeswalker : Attr[None | bool]
 	sorcery 	 : Attr[None | bool]
-	
+
+
 	# -----------------------------------------------------------------------------------------
 	# -------------------------------- Operator :: Constructor --------------------------------
 	# -----------------------------------------------------------------------------------------
@@ -43,6 +42,7 @@ class Type(Node):
 		land 		 = attributes.get('land')
 		planeswalker = attributes.get('planeswalker')
 		sorcery 	 = attributes.get('sorcery')
+
 
 Artifact 	 = Type(artifact=True)
 Battle   	 = Type(battle=True)

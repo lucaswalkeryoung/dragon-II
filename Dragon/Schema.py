@@ -1,22 +1,27 @@
 # -------------------------------------------------------------------------------------------------
-# ----------------------------------------- Dragon :: Node ----------------------------------------
+# ----------------------------------------- Dragon :: Meta ----------------------------------------
 # -------------------------------------------------------------------------------------------------
+from . Annotations import Annotation
+
+from typing import TYPE_CHECKING
+from typing import Any
+
+if TYPE_CHECKING:
+	from . Metaencoder import Metaencoder
+	from . Node import Node
+
 import collections
-import uuid
 
 
 # -------------------------------------------------------------------------------------------------
-# ------------------------------------ Base :: Dragon Base Node -----------------------------------
+# -------------------------------- Metaclass :: Base Node Metaclass -------------------------------
 # -------------------------------------------------------------------------------------------------
-class Node(object):
+class Schema(type):
 
 	# -----------------------------------------------------------------------------------------
 	# -------------------------------- Operator :: Constructor --------------------------------
 	# -----------------------------------------------------------------------------------------
-	def __init__(self, *components: 'Node | str', **attributes: bool | int | float) -> None:
+	def __init__(self, name: str, bases: tuple[type, ...], attrs: dict[str, Any]) -> None:
+		super().__init__(name, bases, attrs)
 
-		self.identifier = uuid.uuid4().hex
-		self.components = list(components)
-		self.attributes = dict(attributes)
-
-		self.edges = collections.defaultdict(list)
+		self.schema = collections.defaultdict(lambda : collections.defaultdict(dict))

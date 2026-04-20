@@ -1,20 +1,20 @@
 # --------------------------------------------------------------------------------------------------
 # ---------------------------------- Weatherlight :: Nodes :: Type ---------------------------------
 # --------------------------------------------------------------------------------------------------
-from .. Autoencoder import Autoencoder
-
 from Dragon import Attr
-from Dragon import Edge
 from Dragon import Node
-from Dragon import Slot
 from Dragon import Type
 
 
 # --------------------------------------------------------------------------------------------------
 # ----------------------------------------- Node :: Subtype ----------------------------------------
 # --------------------------------------------------------------------------------------------------
-@Autoencoder.embed
 class Subtype(Node):
+
+	# -----------------------------------------------------------------------------------------
+	# --------------------------------- Embedding Annotations ---------------------------------
+	# -----------------------------------------------------------------------------------------
+	subtype 		: Type
 
 	# artifact
 	blood		  	: Attr[None | bool]
@@ -298,6 +298,7 @@ class Subtype(Node):
 	zombie		 	: Attr[None | bool]
 	zubera		 	: Attr[None | bool]
 
+	# enchantment
 	aura		 	: Attr[None | bool]
 	background	 	: Attr[None | bool]
 	cartouche	 	: Attr[None | bool]
@@ -308,6 +309,7 @@ class Subtype(Node):
 	shrine		 	: Attr[None | bool]
 	role		 	: Attr[None | bool]
 
+	# land
 	desert			: Attr[None | bool]
 	forest		 	: Attr[None | bool]
 	gate		 	: Attr[None | bool]
@@ -323,6 +325,7 @@ class Subtype(Node):
 	tower		 	: Attr[None | bool]
 	urzas		 	: Attr[None | bool]
 
+	# planeswalker
 	ajani           : Attr[None | bool]
 	angrath         : Attr[None | bool]
 	arlinn          : Attr[None | bool]
@@ -385,6 +388,7 @@ class Subtype(Node):
 	yanggu          : Attr[None | bool]
 	yanling         : Attr[None | bool]
 
+	# instant and sorcery
 	adventure 		: Attr[None | bool]
 	arcane			: Attr[None | bool]
 	lesson 			: Attr[None | bool]
@@ -396,6 +400,7 @@ class Subtype(Node):
 	def __init__(self, *components: Node | str, **attributes: bool | int | float) -> None:
 		super().__init__(*components, **attributes)
 
+		# artifact
 		blood		  	= attributes.get('blood')
 		clue		  	= attributes.get('clue')
 		equipment	  	= attributes.get('equipment')
@@ -407,8 +412,10 @@ class Subtype(Node):
 		treasure	  	= attributes.get('treasure')
 		vehicle		  	= attributes.get('vehicle')
 
+		# battle
 		siege		  	= attributes.get('siege')
 
+		# creature
 		advisor		 	= attributes.get('advisor')
 		aetherborn	 	= attributes.get('aetherborn')
 		alien		 	= attributes.get('alien')
@@ -674,7 +681,8 @@ class Subtype(Node):
 		yeti		 	= attributes.get('yeti')
 		zombie		 	= attributes.get('zombie')
 		zubera		 	= attributes.get('zubera')
-			
+
+		# enchantment
 		aura		 	= attributes.get('aura')
 		background	 	= attributes.get('background')
 		cartouche	 	= attributes.get('cartouche')
@@ -684,7 +692,8 @@ class Subtype(Node):
 		saga		 	= attributes.get('saga')
 		shrine		 	= attributes.get('shrine')
 		role		 	= attributes.get('role')
-	
+
+		# land
 		desert			= attributes.get('desert')
 		forest		 	= attributes.get('forest')
 		gate		 	= attributes.get('gate')
@@ -699,7 +708,8 @@ class Subtype(Node):
 		swamp		 	= attributes.get('swamp')
 		tower		 	= attributes.get('tower')
 		urzas		 	= attributes.get('urzas')
-	
+
+		# planeswalker
 		ajani           = attributes.get('ajani')
 		angrath         = attributes.get('angrath')
 		arlinn          = attributes.get('arlinn')
@@ -762,14 +772,14 @@ class Subtype(Node):
 		yanggu          = attributes.get('yanggu')
 		yanling         = attributes.get('yanling')
 
+		# instant and sorcery
 		adventure 		= attributes.get('adventure')
 		arcane			= attributes.get('arcane')
 		lesson 			= attributes.get('lesson')
 		trap			= attributes.get('trap')
 		
 		
-		
-
+# artifact
 Blood          = Subtype(blood=True)
 Clue           = Subtype(clue=True)
 Equipment      = Subtype(equipment=True)
@@ -781,8 +791,10 @@ Powerstone     = Subtype(powerstone=True)
 Treasure       = Subtype(treasure=True)
 Vehicle        = Subtype(vehicle=True)
 
+# battle
 Siege          = Subtype(siege=True)
 
+# creature
 Advisor        = Subtype(advisor=True)
 Aetherborn     = Subtype(aetherborn=True)
 Alien          = Subtype(alien=True)
@@ -1049,6 +1061,7 @@ Yeti           = Subtype(yeti=True)
 Zombie         = Subtype(zombie=True)
 Zubera         = Subtype(zubera=True)
 
+# enchantment
 Aura           = Subtype(aura=True)
 Background     = Subtype(background=True)
 Cartouche      = Subtype(cartouche=True)
@@ -1059,6 +1072,7 @@ Saga           = Subtype(saga=True)
 Shrine         = Subtype(shrine=True)
 Role           = Subtype(role=True)
 
+# land
 Desert         = Subtype(desert=True)
 Forest         = Subtype(forest=True)
 Gate           = Subtype(gate=True)
@@ -1074,6 +1088,7 @@ Swamp          = Subtype(swamp=True)
 Tower          = Subtype(tower=True)
 Urzas          = Subtype(urzas=True)
 
+# planeswalker
 Ajani          = Subtype(ajani=True)
 Angrath        = Subtype(angrath=True)
 Arlinn         = Subtype(arlinn=True)
@@ -1136,6 +1151,7 @@ Xenagos        = Subtype(xenagos=True)
 Yanggu         = Subtype(yanggu=True)
 Yanling        = Subtype(yanling=True)
 
+# instant and sorcery
 Adventure 	   = Subtype(adventure=True)
 Arcane 		   = Subtype(arcane=True)
 Lesson 		   = Subtype(lesson=True)

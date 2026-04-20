@@ -1,26 +1,27 @@
-# --------------------------------------------------------------------------------------------------
-# --------------------------- Weatherlight :: Autoencoder :: Autoencoder ---------------------------
-# --------------------------------------------------------------------------------------------------
-from Dragon import Autoencoder
-from Dragon import Embeddings
-from Dragon import Attr
-from Dragon import Edge
-from Dragon import Type
-from Dragon import Slot
+# -------------------------------------------------------------------------------------------------
+# --------------------------- Weatherlight :: Autoencoder :: Autoencoder --------------------------
+# -------------------------------------------------------------------------------------------------
+from Dragon import Embedding
+from Dragon import Node
 
-import torch
-import torch.nn as nn
+from .. import Nodes
 
 
-# --------------------------------------------------------------------------------------------------
-# ----------------------------- Autoencoder :: Weatherlight Autoencoder ----------------------------
-# --------------------------------------------------------------------------------------------------
-class Autoencoder(nn.Module, metaclass=Autoencoder, height=512, width=512):
+# -------------------------------------------------------------------------------------------------
+# ------------------------------------- Module :: Autoencoder -------------------------------------
+# -------------------------------------------------------------------------------------------------
+class Autoencoder(object):
 
 	# -----------------------------------------------------------------------------------------
 	# -------------------------------- Operator :: Constructor --------------------------------
 	# -----------------------------------------------------------------------------------------
-	def __init__(self, embeddings: Embeddings) -> None:
-		super().__init__()
+	def __init__(self, height: int, width: int) -> None:
 
-		self.embeddings = embeddings
+		nodes = vars(Nodes).values()
+
+		nodes = filter(lambda item: isinstance(item, type), nodes)
+		nodes = filter(lambda item: issubclass(item, Node), nodes)
+
+		self.embeddings = Embedding(width, nodes)
+		self.height = height
+		self.width  = width

@@ -1,9 +1,14 @@
 # -------------------------------------------------------------------------------------------------
 # ------------------------------ The Dragon Graph Autoencoder System ------------------------------
 # -------------------------------------------------------------------------------------------------
-from Weatherlight.Generators.Identity import Generator
+from Weatherlight import Autoencoder
+from Dragon import Node
+from Dragon import Slot
 
-from Dragon import *
-from Weatherlight import *
+autoencoder = Autoencoder(height=512, width=512)
 
-Generator().generate(Autoencoder())
+def tensorize(node: Node) -> None:
+
+	accumulator, null, padding = autoencoder.embeddings(Slot)
+
+tensorize(None)
