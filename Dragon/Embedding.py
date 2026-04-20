@@ -11,16 +11,21 @@ from typing import Iterable
 if TYPE_CHECKING:
 	from . Schema import Schema
 
+import torch
+import torch.nn as nn
+
 
 # -------------------------------------------------------------------------------------------------
 # ------------------------------- Utility :: Embedding Table Manager ------------------------------
 # -------------------------------------------------------------------------------------------------
-class Embedding(object):
+class Embedding(nn.Module):
 
 	# -----------------------------------------------------------------------------------------
 	# -------------------------------- Operator :: Constructor --------------------------------
 	# -----------------------------------------------------------------------------------------
 	def __init__(self, width: int, nodes: Iterable['Schema']) -> None:
+
+		super().__init__()
 
 		self.indices = DefaultKeyDict(lambda key : len(self.indices))
 		self.schemas = DefaultKeyDict(
@@ -32,7 +37,7 @@ class Embedding(object):
 			for attribute, annotation in Annotation.extract(node).items():
 				node.schema[annotation][attribute] = self.schemas[annotation][attribute]
 
-		# self.tensors = nn.Embedding(width, len(self.indices))
+		self.tensors = nn.Embedding(width, len(self.indices))
 
 
 	# -----------------------------------------------------------------------------------------
